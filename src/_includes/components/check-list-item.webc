@@ -1,6 +1,6 @@
 <li>
 <script webc:type="render" webc:is="template">
-function() {
+function () {
 	return `<span class="${this.completed === 'true' ? 'completed' : ''}"></span>`;
 }
 </script>
@@ -11,13 +11,14 @@ function() {
 <style webc:scoped>
 span {
     display: inline-block;
-    height: 0.75lh;
+    height: 2ch;
     aspect-ratio: 1;
-    /* border-radius: 0.25lh; */
-    color: black;
+    border-radius: 0.5ch;
+    color: var(--checkbox-color);
     position: relative;
     border: 1px solid;
-    vertical-align: -0.1lh;
+    vertical-align: -0.2ch;
+    background: var(--theme-bg);
 }
 
 span::after {
@@ -32,7 +33,7 @@ span::after {
 }
 
 .completed::after {
-    background: black;
+    background: var(--checkbox-color);
 }
 
 </style>

@@ -16,7 +16,7 @@ webc:
     <link rel="icon" type="img/png" href="/images/favicon.png"/>
     
     <title @html="this.title + ' - andrew jd hudson'" webc:keep></title>
-
+    
     <style @html="this.getCSS(this.page.url)"></style>
 		<script @html="this.getJS(this.page.url)"></script>
   </head>     
@@ -31,11 +31,16 @@ webc:
       <main>
         <h1 @html="this.title"></h1>
 
-        <div webc:nokeep @html="this.content"></div>
+        <div webc:keep @html="this.content"></div>
       </main>
     <footer>
        <footer-nav></footer-nav>
     </footer>
-      <theme-selector class="theme-selector-top" webc:keep></theme-selector> 
+      <theme-selector class="theme-selector-top" @open="false" webc:keep></theme-selector> 
+      <script>
+        const theme = localStorage.getItem('theme');
+  
+        document.body.classList = theme;
+      </script>
   </body>
 </html>

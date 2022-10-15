@@ -4,31 +4,70 @@
 }
 </style>
 
+<ah-button>Theme Selector</ah-button>
 
-<ah-button>Toggle the drawer</ah-button>
-<div class="drawer closed">I am the drawer</div>
 <slot></slot>
+
+
+<script  webc:type="render">
+function() {
+    return `<div class="drawer ${this.open === 'true' ? 'open' : 'closed'}">
+        <div>
+	<label for="dark">Dark</label><input type="radio" name="theme" id="dark" />
+</div>
+<div>
+	<label for="light">Light</label><input type="radio" name="theme" id="light" />
+</div>
+<div>
+	<label for="red">Red</label><input type="radio" name="theme" id="red" />
+</div>
+<div>
+	<label for="rainbow">Rainbow</label><input type="radio" name="theme" id="rainbow" />
+</div>
+
+    </div>`;
+}
+</script>
 
 
 <script webc:scoped>
 window.customElements.define('theme-selector', class extends HTMLElement {
     connectedCallback () {
-        // console.log("custom element is now connected");
+        console.log("custom element is now connected");
         const btn = this.querySelector(':scope button');
-        console.log(btn)
         const drawer = this.querySelector(':scope div');
+        const body = document.body;
+
+        const theme = localStorage.getItem('theme');
+        
+        
+        if (theme) {
+            this.querySelector(`#${theme}`).checked = true;
+        }
 
         btn.addEventListener('click', () => {
-           // console.log('clicked button');
             drawer.classList.toggle('closed');
         });
+
+        const inputs = drawer.querySelectorAll('[type=radio]');
+
+        const handleInputClick = (e) => {
+            const theme = e.target.id;
+
+            body.classList = ''; // Clear the class list
+            body.classList.add(theme); // add the new class
+
+            localStorage.setItem('theme', theme); // save to localStorage
+        }
+
+        inputs.forEach(input => input.addEventListener('click', handleInputClick));
     }
 });
 </script>
 
 <style webc:scoped>
     .drawer {
-        width: 500px;
+        width: 200px;
         border: 1px solid black;
         background: white;
         box-shadow: 0 3px 3px black;
@@ -36,5 +75,15 @@ window.customElements.define('theme-selector', class extends HTMLElement {
         position: absolute;
         top: 2em;
         right: 0;
+        color: black;
     }
-    </style> 
+
+    .drawer > div {
+        display: grid;
+        grid-template-columns: 1fr auto;
+    }
+
+    .drawer [type=radio] {
+        justify-self: flex-start;
+    }
+</style> 

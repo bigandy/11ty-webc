@@ -38,6 +38,41 @@
 	--f-small-size: 12.8;
 	--f-small-lh: 12.8;
 	--row-size: 8;
+
+	--link-color: blue;
+	--checkbox-color: black;
+}
+
+
+
+.dark {
+	--theme-bg: black;
+	--theme-text: white;
+	--link-color: var(--pink);
+	--checkbox-color: var(--pink);
+}
+
+@supports(background: color(display-p3 1 0 0.87)) {
+	.dark {
+		--link-color: color(display-p3 1 0 0.87);
+	}
+}
+
+
+.red {
+	--theme-bg: red;
+	--link-color: white;
+	--checkbox-color: cyan;
+}
+
+.rainbow {
+	--theme-bg: linear-gradient(to right, red, orange , yellow, green, cyan, blue, violet);
+
+	--link-color: black;
+}
+
+a {
+	color: var(--link-color);
 }
 
 body {
