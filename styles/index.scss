@@ -1,0 +1,36 @@
+@import "reset";
+@import "typography";
+@import "theme-vars";
+
+
+html {
+  font-family: Atkinson, Gill Sans, Gill Sans MT, Calibri, Trebuchet MS, sans-serif;
+  line-height: 1.3;
+}
+
+html, 
+body {
+  min-height: 100vh;
+}
+
+body {
+  padding: 2rem;
+  display: flex;
+  // height: 100%;
+}
+
+main {
+  max-width: var(--content-max-width);
+  margin: auto;
+}
+
+footer {
+  align-self: flex-end;
+}
+
+.theme-selector-top {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+
+}

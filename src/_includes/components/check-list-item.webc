@@ -1,0 +1,38 @@
+<li>
+<script webc:type="render" webc:is="template">
+function() {
+	return `<span class="${this.completed === 'true' ? 'completed' : ''}"></span>`;
+}
+</script>
+
+<slot></slot>
+</li>
+
+<style webc:scoped>
+span {
+    display: inline-block;
+    height: 0.75lh;
+    aspect-ratio: 1;
+    /* border-radius: 0.25lh; */
+    color: black;
+    position: relative;
+    border: 1px solid;
+    vertical-align: -0.1lh;
+}
+
+span::after {
+    height: calc(100% - 2px);
+    aspect-ratio: 1;
+    content: "";
+    display: block;
+    border-radius: inherit;
+    top: 1px;
+    left: 1px;
+    position: absolute;
+}
+
+.completed::after {
+    background: black;
+}
+
+</style>

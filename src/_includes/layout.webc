@@ -1,0 +1,41 @@
+---
+webc:
+  components: "./_includes/components/*.webc"
+---
+<!DOCTYPE html> 
+<html lang="en">
+  <head>  
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/@root/styles/index.scss"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" type="img/png" href="/images/favicon.png"/>
+    
+    <title @html="this.title + ' - andrew jd hudson'" webc:keep></title>
+
+    <style @html="this.getCSS(this.page.url)"></style>
+		<script @html="this.getJS(this.page.url)"></script>
+  </head>     
+  <body>
+    <header>
+      <nav>  
+        <a href="/">Home</a>
+        <a href="/cv">CV</a> 
+        <a href="/demos">Demos</a> 
+      </nav>
+    </header>
+      <main>
+        <h1 @html="this.title"></h1>
+
+        <div webc:nokeep @html="this.content"></div>
+      </main>
+    <footer>
+       <footer-nav></footer-nav>
+    </footer>
+      <theme-selector class="theme-selector-top" webc:keep></theme-selector> 
+  </body>
+</html>

@@ -1,0 +1,10 @@
+<button><slot></slot></button>
+
+<style webc:scoped>
+:host button {
+    background: green;
+    color: white;
+    border: 0;
+    padding: 0.5em 1em;
+}
+</style>

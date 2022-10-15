@@ -1,0 +1,12 @@
+<ul><slot></slot></ul>
+
+<style webc:scoped>
+ul {
+    padding: 0;
+    margin-block: 1em;
+}
+li {
+    list-style: none;
+    margin-block-end: 1em;
+}
+</style>

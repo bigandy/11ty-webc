@@ -1,0 +1,40 @@
+<style webc:scoped>
+.closed {
+    display: none;
+}
+</style>
+
+
+<ah-button>Toggle the drawer</ah-button>
+<div class="drawer closed">I am the drawer</div>
+<slot></slot>
+
+
+<script webc:scoped>
+window.customElements.define('theme-selector', class extends HTMLElement {
+    connectedCallback () {
+        // console.log("custom element is now connected");
+        const btn = this.querySelector(':scope button');
+        console.log(btn)
+        const drawer = this.querySelector(':scope div');
+
+        btn.addEventListener('click', () => {
+           // console.log('clicked button');
+            drawer.classList.toggle('closed');
+        });
+    }
+});
+</script>
+
+<style webc:scoped>
+    .drawer {
+        width: 500px;
+        border: 1px solid black;
+        background: white;
+        box-shadow: 0 3px 3px black;
+        padding: 1em;
+        position: absolute;
+        top: 2em;
+        right: 0;
+    }
+    </style> 
