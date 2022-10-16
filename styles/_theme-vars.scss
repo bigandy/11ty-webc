@@ -41,6 +41,8 @@
 
 	--link-color: blue;
 	--checkbox-color: black;
+	--button-bg: var(--link-color);
+	accent-color: var(--button-bg);
 }
 
 
@@ -50,6 +52,7 @@
 	--theme-text: white;
 	--link-color: var(--pink);
 	--checkbox-color: var(--pink);
+	--button-bg: var(--link-color);
 }
 
 @supports(background: color(display-p3 1 0 0.87)) {
@@ -63,12 +66,18 @@
 	--theme-bg: red;
 	--link-color: white;
 	--checkbox-color: cyan;
+	--button-bg: white;
+	--button-color: black;
 }
 
 .rainbow {
-	--theme-bg: linear-gradient(to right, red, orange , yellow, green, cyan, blue, violet);
+	--rainbow-colors: red, orange , yellow, green, cyan, blue, violet;
+	--theme-bg: linear-gradient(to right, var(--rainbow-colors));
 
 	--link-color: black;
+	--button-bg: linear-gradient(45deg, var(--rainbow-colors));;
+	--button-color: black;
+
 }
 
 a {
