@@ -47,6 +47,7 @@ window.customElements.define('theme-selector', class extends HTMLElement {
 
         btn.addEventListener('click', () => {
             drawer.classList.toggle('closed');
+            hideOnClickOutside(this);
         });
 
         const inputs = drawer.querySelectorAll('[type=radio]');
@@ -61,6 +62,23 @@ window.customElements.define('theme-selector', class extends HTMLElement {
         }
 
         inputs.forEach(input => input.addEventListener('click', handleInputClick));
+
+
+        function hideOnClickOutside(element) {
+            const outsideClickListener = event => {
+                if (element.contains(event.target) === element.classList.contains('closed')) {
+                    // console.log('outside');
+                    drawer.classList = 'drawer closed';
+                    removeClickListener();
+                }
+            }
+
+            const removeClickListener = () => {
+                document.removeEventListener('click', outsideClickListener);
+            }
+
+            document.addEventListener('click', outsideClickListener);
+        }
     }
 });
 </script>

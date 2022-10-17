@@ -101,7 +101,9 @@ p, li {
 
 h1 {
 	font-size: calc(var(--f-h1-size) * 1px);
-	line-height: calc(var(--f-lh) * 1px);
+	// line-height: calc(var(--f-lh) * 1px);
+	line-height: 1;
+	margin-bottom: 0.5em;
 }
 
 h2 {
