@@ -5,10 +5,32 @@ webc:
   components: "./_includes/components/*.webc"
 ---
 
-<h2>Skills</h2> 
- 
-<check-list>
-  <check-list-item @completed="true">CSS</check-list-item>
-  <check-list-item @completed="true">JS</check-list-item>
-  <check-list-item @completed="true">Web Components</check-list-item>
-</check-list>
+
+<!-- <h2>Skills</h2>
+<ul>
+  <li>React, NextJS, Typescript, CSS</li>
+</ul> -->
+
+
+<!-- <h2>Experience</h2>  -->
+
+<job-history webc:nokeep>
+  <job  @current="true" @start="10-2017" @title="Senior Front-end Engineer" @company="Venture Harbour" @url="https://ventureharbour.com">
+    <ul>
+      <li>Web app development with Next.js, GraphQL and Typescript.</li>
+      <li>Creation of component library with Storybook to showcase and document.</li>
+      <li>Break down problems into solutions and solutions into tasks, creating prototypes when required.</li>
+      <li>Desktop Application and Browser Extension development.</li>
+      <li>Optimise Performance of each of our sites and products and automate testing and CI for each deployment.</li>
+    </ul>
+  </job>
+
+  <job @current="false" @start="10-2016" @end="10-2017" @title="Front-end Engineer"  @company="Taylor and Francis" @url="https://tanf.com">
+    <ul>
+      <li>I created custom performant WordPress and Expression Engine sites.</li>
+      <li>I hand-crafted a node tool to benchmark and monitor Business Sites using the Web Page Test API and display with React.</li>
+      <li>Perform performance audits and carry out improvements on business and society sites.</li>
+    </ul>
+  </job>
+</job-history>
+

@@ -70,7 +70,7 @@ window.customElements.define('theme-selector', class extends HTMLElement {
         width: 200px;
         border: 1px solid black;
         background: white;
-        box-shadow: 0 3px 3px black;
+        box-shadow: -3px 3px 3px var(--button-bg, var(--link-color));
         padding: 1em;
         position: absolute;
         top: 2em;

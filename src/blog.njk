@@ -1,8 +1,0 @@
----
-title: Blog
-layout: layout
----
-
-<h2>Posts</h2>
-{% set postslist = collections.posts | reverse | firstNElements(3) | reverse %}
-{% include "components/postslist.njk" %}

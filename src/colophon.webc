@@ -11,7 +11,7 @@ webc:
   <check-list-item @completed="false">Click outside of theme-selector to close it, see <a href="https://github.com/zachleat/details-utils" target="_blank">https://github.com/zachleat/details-utils</a></check-list-item>
   <check-list-item @completed="true">using web components and @11ty/webc so non-interactive web components will be rendered as static html/css for faster browsing experience. Interactive elements will still load and contain custom JS as desired.</check-list-item>
   <check-list-item @completed="true">this site will have a theme selector so allow me to give you the end user a custom experience</check-list-item>
-  <check-list-item @completed="true">@container queries to allow me the site builder to create components and throw them anywhere I should want without having to custom style them in their individual circumstances</check-list-item>
+  <check-list-item @completed="false">@container queries to allow me the site builder to create components and throw them anywhere I should want without having to custom style them in their individual circumstances</check-list-item>
   <check-list-item @completed="true">built using 11ty and (currently) Slinkity to allow me to go fast, have hot reload, and never have to press that bloody refresh button.</check-list-item>
 </check-list>
 

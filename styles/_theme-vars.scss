@@ -53,6 +53,7 @@
 	--link-color: var(--pink);
 	--checkbox-color: var(--pink);
 	--button-bg: var(--link-color);
+	accent-color: var(--pink);
 }
 
 @supports(background: color(display-p3 1 0 0.87)) {
@@ -61,13 +62,13 @@
 	}
 }
 
-
 .red {
 	--theme-bg: red;
 	--link-color: white;
 	--checkbox-color: cyan;
 	--button-bg: white;
 	--button-color: black;
+	accent-color: red;
 }
 
 .rainbow {
@@ -77,6 +78,7 @@
 	--link-color: black;
 	--button-bg: linear-gradient(45deg, var(--rainbow-colors));;
 	--button-color: black;
+	accent-color: black;
 
 }
 
@@ -87,9 +89,14 @@ a {
 body {
 	font-family: var(--font-fallback);
 	background: var(--theme-bg);
-	color: var(--theme-text);
+	// color: var(--theme-text);
 	font-size: 18px;
 	line-height: 1.625;
+}
+
+body,
+p, li {
+	color: var(--theme-text);
 }
 
 h1 {
