@@ -1,7 +1,7 @@
 {
-  "name": "my-slinkity-site",
+  "name": "my-webc-site",
   "version": "1.0.0",
-  "description": "A splendid starter for my Slinkity site!",
+  "description": "A webc site!",
   "main": ".eleventy.js",
   "scripts": {
     "dev": "eleventy --serve",
@@ -9,11 +9,11 @@
     "build": "eleventy"
   },
   "devDependencies": {
-    "@11ty/eleventy": "2.0.0-canary.16",
-    "slinkity": "0.8.3"
+    "@11ty/eleventy": "2.0.0-beta.2",
+    "slinkity": "1.0.0-canary.0"
   },
   "dependencies": {
-    "@11ty/eleventy-plugin-webc": "0.5.0",
-    "luxon": "3.0.4"
+    "@11ty/eleventy-plugin-webc": "0.8.1",
+    "sass": "1.57.1"
   }
 }

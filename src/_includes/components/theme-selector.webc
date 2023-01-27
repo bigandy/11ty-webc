@@ -1,107 +1,117 @@
 <style webc:scoped>
-.closed {
+  .closed {
     display: none;
-}
+  }
 </style>
 
 <ah-button>Theme Selector</ah-button>
 
 <slot></slot>
+<script webc:type="render" webc:is="template">
+  function() {
+      return `<div class="drawer ${this.open === 'true' ? 'open' : 'closed'}">
+          <div>
+    <label for="dark">Dark</label><input type="radio" name="theme" id="dark" />
+  </div>
+  <div>
+    <label for="light">Light</label><input type="radio" name="theme" id="light" />
+  </div>
+  <div>
+    <label for="red">Red</label><input type="radio" name="theme" id="red" />
+  </div>
+  <div>
+    <label for="rainbow">Rainbow</label><input type="radio" name="theme" id="rainbow" />
+  </div>
 
-
-<script  webc:type="render">
-function() {
-    return `<div class="drawer ${this.open === 'true' ? 'open' : 'closed'}">
-        <div>
-	<label for="dark">Dark</label><input type="radio" name="theme" id="dark" />
-</div>
-<div>
-	<label for="light">Light</label><input type="radio" name="theme" id="light" />
-</div>
-<div>
-	<label for="red">Red</label><input type="radio" name="theme" id="red" />
-</div>
-<div>
-	<label for="rainbow">Rainbow</label><input type="radio" name="theme" id="rainbow" />
-</div>
-
-    </div>`;
-}
+      </div>`;
+  }
 </script>
 
+<script webc:scoped webc:keep>
+  if (!customElements.get("theme-selector")) {
+    window.customElements.define(
+      "theme-selector",
+      class extends HTMLElement {
+        connectedCallback() {
+          // console.log("custom element is now connected");
 
-<script webc:scoped>
-window.customElements.define('theme-selector', class extends HTMLElement {
-    connectedCallback () {
-        console.log("custom element is now connected");
-        const btn = this.querySelector(':scope button');
-        const drawer = this.querySelector(':scope div');
-        const body = document.body;
+          const btn = this.querySelector(":scope button");
+          const drawer = this.querySelector(":scope div");
 
-        const theme = localStorage.getItem('theme');
-        
-        
-        if (theme) {
-            this.querySelector(`#${theme}`).checked = true;
-        }
+          const body = document.body;
 
-        btn.addEventListener('click', () => {
-            drawer.classList.toggle('closed');
+          const theme = localStorage.getItem("theme");
+
+          if (theme) {
+            const input = this.querySelector(`#${theme}`);
+            if (input) {
+              input.checked = true;
+            }
+          }
+
+          btn.addEventListener("click", () => {
+            drawer.classList.toggle("closed");
             hideOnClickOutside(this);
-        });
+          });
 
-        const inputs = drawer.querySelectorAll('[type=radio]');
+          const inputs = drawer.querySelectorAll("[type=radio]");
 
-        const handleInputClick = (e) => {
+          const handleInputClick = (e) => {
             const theme = e.target.id;
 
-            body.classList = ''; // Clear the class list
+            body.classList = ""; // Clear the class list
             body.classList.add(theme); // add the new class
 
-            localStorage.setItem('theme', theme); // save to localStorage
-        }
+            localStorage.setItem("theme", theme); // save to localStorage
+          };
 
-        inputs.forEach(input => input.addEventListener('click', handleInputClick));
+          inputs.forEach((input) =>
+            input.addEventListener("click", handleInputClick)
+          );
 
-
-        function hideOnClickOutside(element) {
-            const outsideClickListener = event => {
-                if (element.contains(event.target) === element.classList.contains('closed')) {
-                    // console.log('outside');
-                    drawer.classList = 'drawer closed';
-                    removeClickListener();
-                }
-            }
+          function hideOnClickOutside(element) {
+            const outsideClickListener = (event) => {
+              if (
+                element.contains(event.target) ===
+                element.classList.contains("closed")
+              ) {
+                // console.log('outside');
+                drawer.classList = "drawer closed";
+                removeClickListener();
+              }
+            };
 
             const removeClickListener = () => {
-                document.removeEventListener('click', outsideClickListener);
-            }
+              document.removeEventListener("click", outsideClickListener);
+            };
 
-            document.addEventListener('click', outsideClickListener);
+            document.addEventListener("click", outsideClickListener);
+          }
         }
-    }
-});
+      }
+    );
+  }
 </script>
 
 <style webc:scoped>
-    .drawer {
-        width: 200px;
-        border: 1px solid black;
-        background: white;
-        box-shadow: -3px 3px 3px var(--button-bg, var(--link-color));
-        padding: 1em;
-        position: absolute;
-        top: 2em;
-        right: 0;
-        color: black;
-    }
+  .drawer {
+    width: 200px;
+    border: 1px solid black;
+    background: white;
+    box-shadow: -3px 3px 3px var(--button-bg, var(--link-color));
+    padding: 1em;
+    position: absolute;
+    top: 2em;
+    right: 0;
+    color: black;
+  }
 
-    .drawer > div {
-        display: grid;
-        grid-template-columns: 1fr auto;
-    }
+  .drawer > div {
+    display: grid;
+    grid-template-columns: 1fr auto;
+  }
 
-    .drawer [type=radio] {
-        justify-self: flex-start;
-    }
-</style> 
+  .drawer [type="radio"] {
+    justify-self: flex-start;
+  }
+</style>

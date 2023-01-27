@@ -1,4 +1,4 @@
 ---
 title: Demos
-layout: layout
+layout: "layout.webc"
 ---

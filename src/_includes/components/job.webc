@@ -1,34 +1,37 @@
-<script webc:type="render" webc:is="template">
-function() {
-    const end = this.end ? `<span>${this.end}</span>` : 'present';
-    const start = this.start !== '' ? `<span>${this.start}</span>` : '';
+<script webc:type="js">
+  function d() {
+    console.log(this.start);
+    const end = this.end ? `<span>${this.end}</span>` : "present";
+    const start = this.start !== "" ? `<span>${this.start}</span>` : "";
 
     return `
-        <li class="${this.current === 'true' ? 'current' : ''}">
+        <li class="${this.current === "true" ? "current" : ""}">
             <div>
                 <div>
                     ${start} - ${end}
                 </div>
                 <p><strong>${this.title}</strong></p>
-                <a target="_blank" rel="noopener" href="${this.url}">${this.company}</a>
+                <a target="_blank" rel="noopener" href="${this.url}">${
+      this.company
+    }</a>
             </div>
             <slot></slot>        
         </li>
     `;
-}
+  }
 </script>
 <style webc:scoped>
-:host .current {
+  :host .current {
     border: 1px solid;
     background: lightgrey;
-}
+  }
 
-:host > li {
+  :host > li {
     --link-color: blue;
     --theme-text: black;
     background: white;
     padding: 1em;
     list-style: none;
     margin-block-end: 2em;
-}
+  }
 </style>

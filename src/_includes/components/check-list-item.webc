@@ -1,15 +1,17 @@
 <li>
-<script webc:type="render" webc:is="template">
-function () {
-	return `<span class="${this.completed === 'true' ? 'completed' : ''}"></span>`;
-}
-</script>
+  <script webc:type="render" webc:is="template">
+    function d() {
+      return `<span class="${
+        this.completed === "true" ? "completed" : ""
+      }"></span>`;
+    }
+  </script>
 
-<slot></slot>
+  <slot></slot>
 </li>
 
 <style webc:scoped>
-span {
+  span {
     display: inline-block;
     height: 2ch;
     aspect-ratio: 1;
@@ -19,9 +21,9 @@ span {
     border: 1px solid;
     vertical-align: -0.2ch;
     background: var(--theme-bg);
-}
+  }
 
-span::after {
+  span::after {
     height: calc(100% - 2px);
     aspect-ratio: 1;
     content: "";
@@ -30,10 +32,9 @@ span::after {
     top: 1px;
     left: 1px;
     position: absolute;
-}
+  }
 
-.completed::after {
+  .completed::after {
     background: var(--checkbox-color);
-}
-
+  }
 </style>
