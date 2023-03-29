@@ -31,7 +31,7 @@ webc:
       <nav>
         <a href="/">Home</a>
         <a href="/cv">CV</a>
-        <a href="/demos">Demos</a>
+        <!-- <a href="/demos">Demos</a> -->
       </nav>
     </header>
     <main>

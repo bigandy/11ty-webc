@@ -4,9 +4,9 @@
   "description": "A webc site!",
   "main": ".eleventy.js",
   "scripts": {
-    "dev": "eleventy --serve",
-    "start": "eleventy --serve --incremental",
-    "build": "eleventy"
+    "dev": "npx @11ty/eleventy --serve --quiet",
+    "start": "npx @11ty/eleventy --serve --incremental",
+    "build": "npx @11ty/eleventy"
   },
   "devDependencies": {
     "@11ty/eleventy": "2.0.1"

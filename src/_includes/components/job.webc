@@ -1,7 +1,8 @@
 <li webc:root="override">
   <script webc:type="render" webc:is="template">
     function d() {
-      const end = this.end ? `<span>${this.end}</span>` : "present";
+      console.log(this.end);
+      const end = this.end !== "false" ? `<span>${this.end}</span>` : "present";
       const start = this.start !== "" ? `<span>${this.start}</span>` : "";
       const current = this.end !== "false";
 
