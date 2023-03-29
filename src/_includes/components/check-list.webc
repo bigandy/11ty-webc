@@ -1,12 +1,14 @@
-<ul><slot></slot></ul>
+<ul webc:root="override">
+  <slot></slot>
+</ul>
 
 <style webc:scoped>
-ul {
+  :host {
     padding: 0;
     margin-block: 1em;
-}
-li {
+  }
+  :host li {
     list-style: none;
     margin-block-end: 1em;
-}
+  }
 </style>

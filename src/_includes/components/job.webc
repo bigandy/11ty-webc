@@ -1,34 +1,41 @@
-<script webc:type="js">
-  function d() {
-    console.log(this.start);
-    const end = this.end ? `<span>${this.end}</span>` : "present";
-    const start = this.start !== "" ? `<span>${this.start}</span>` : "";
+<li webc:root="override">
+  <script webc:type="render" webc:is="template">
+    function d() {
+      const end = this.end ? `<span>${this.end}</span>` : "present";
+      const start = this.start !== "" ? `<span>${this.start}</span>` : "";
+      const current = this.end !== "false";
 
-    return `
-        <li class="${this.current === "true" ? "current" : ""}">
-            <div>
+      return `
+            <div class="${current ? "current" : ""}">
                 <div>
                     ${start} - ${end}
                 </div>
                 <p><strong>${this.title}</strong></p>
                 <a target="_blank" rel="noopener" href="${this.url}">${
-      this.company
-    }</a>
+        this.company
+      }</a>
             </div>
-            <slot></slot>        
-        </li>
     `;
-  }
-</script>
+    }
+  </script>
+
+  <slot></slot>
+</li>
+
 <style webc:scoped>
-  :host .current {
+  :host:has(.current) {
     border: 1px solid;
     background: lightgrey;
+  }
+
+  :host {
+    margin-bottom: 2rem;
   }
 
   :host > li {
     --link-color: blue;
     --theme-text: black;
+
     background: white;
     padding: 1em;
     list-style: none;

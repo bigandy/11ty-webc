@@ -5,17 +5,10 @@ webc:
   components: "./_includes/components/*.webc"
 ---
 
-<!-- <h2>Skills</h2>
 <ul>
-  <li>React, NextJS, Typescript, CSS</li>
-</ul> -->
-
-<!-- <h2>Experience</h2>  -->
-
-<job-history webc:nokeep>
   <job
-    @current="true"
     @start="10-2017"
+    @end="false"
     @title="Senior Front-end Engineer"
     @company="Venture Harbour"
     @url="https://ventureharbour.com"
@@ -38,12 +31,11 @@ webc:
   </job>
 
   <job
-    @current="false"
     @start="10-2016"
     @end="10-2017"
     @title="Front-end Engineer"
     @company="Taylor and Francis"
-    @url="https://tanf.com"
+    @url="https://taylorandfrancis.com/"
   >
     <ul>
       <li>
@@ -59,4 +51,4 @@ webc:
       </li>
     </ul>
   </job>
-</job-history>
+</ul>

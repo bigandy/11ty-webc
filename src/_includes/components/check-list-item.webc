@@ -1,4 +1,4 @@
-<li>
+<li webc:root="override">
   <script webc:type="render" webc:is="template">
     function d() {
       return `<span class="${

@@ -14,7 +14,7 @@ webc:
       rel="stylesheet"
       webc:keep
     />
-    <link rel="stylesheet" href="/@root/styles/index.scss" webc:keep />
+    <link rel="stylesheet" href="/styles/index.css" webc:keep />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -22,8 +22,9 @@ webc:
 
     <title @html="title + ' - andrew jd hudson'" webc:keep></title>
 
-    <style @html="getCss(page.url)" webc:keep></style>
-    <script @raw="getJs(page.url)" webc:keep></script>
+    <!-- inline bundles -->
+    <style @raw="getBundle('css')" webc:keep></style>
+    <script @raw="getBundle('js')" webc:keep></script>
   </head>
   <body>
     <header>
@@ -47,12 +48,6 @@ webc:
       webc:keep
     ></theme-selector>
 
-    <script webc:type="js">
-      if (document && window) {
-        const theme = window?.localStorage.getItem("theme");
-        console.log(theme);
-        document.body.classList = theme;
-      }
-    </script>
+    <theme-setter></theme-setter>
   </body>
 </html>

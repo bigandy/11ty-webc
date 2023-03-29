@@ -33,8 +33,6 @@
       "theme-selector",
       class extends HTMLElement {
         connectedCallback() {
-          // console.log("custom element is now connected");
-
           const btn = this.querySelector(":scope button");
           const drawer = this.querySelector(":scope div");
 
@@ -75,7 +73,6 @@
                 element.contains(event.target) ===
                 element.classList.contains("closed")
               ) {
-                // console.log('outside');
                 drawer.classList = "drawer closed";
                 removeClickListener();
               }

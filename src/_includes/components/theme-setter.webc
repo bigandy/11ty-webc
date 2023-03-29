@@ -1,0 +1,5 @@
+<script webc:keep>
+  const theme = window?.localStorage.getItem("theme");
+
+  document.body.classList = theme;
+</script>

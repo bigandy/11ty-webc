@@ -1,0 +1,9 @@
+<a webc:root="override" :href="url">
+  <slot></slot>
+</a>
+
+<style webc:scoped>
+  :host {
+    color: red;
+  }
+</style>

@@ -1,0 +1,185 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --purple-1: hsl(258deg 47% 2%);
+  --purple-2: hsl(258deg 47% 12%);
+  --purple-3: hsl(258deg 47% 22%);
+  --purple-4: hsl(258deg 47% 62%);
+  --pink: #ff00d6;
+  --yellow: #faff02;
+  --primary: var(--pink);
+  --secondary: var(--yellow);
+  --content-max-width: 700px;
+}
+
+@property --f-body-weight {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 900;
+}
+
+:root {
+  --anybody-variable: "Anybody", cursive;
+  --font-family: var(--anybody-variable);
+  --f-body-weight: 900;
+  --f-body-width: 150;
+  --f-body-slant: -10;
+  --f-h1-size: 61;
+  --f-h1-lh: 74;
+  --f-h2-size: 48.83;
+  --f-h2-lh: 59;
+  --f-h3-size: 39.06;
+  --f-h3-lh: 47;
+  --f-h4-size: 32.35;
+  --f-h4-lh: 38;
+  --f-h5-size: 25;
+  --f-h5-lh: 30;
+  --f-h6-size: 20;
+  --f-h6-lh: 24;
+  --f-body-size: 16;
+  --f-small-size: 12.8;
+  --f-small-lh: 12.8;
+  --row-size: 8;
+
+  --link-color: blue;
+  --checkbox-color: black;
+  --button-bg: var(--link-color);
+  accent-color: var(--button-bg);
+}
+
+.dark {
+  --theme-bg: black;
+  --theme-text: white;
+  --link-color: var(--pink);
+  --checkbox-color: var(--pink);
+  --button-bg: var(--link-color);
+  accent-color: var(--pink);
+}
+
+@supports (background: color(display-p3 1 0 0.87)) {
+  .dark {
+    --link-color: color(display-p3 1 0 0.87);
+  }
+}
+
+.red {
+  --theme-bg: red;
+  --link-color: white;
+  --checkbox-color: cyan;
+  --button-bg: white;
+  --button-color: black;
+  accent-color: red;
+}
+
+.rainbow {
+  --rainbow-colors: red, orange, yellow, green, cyan, blue, violet;
+  --theme-bg: linear-gradient(to right, var(--rainbow-colors));
+
+  --link-color: black;
+  --button-bg: linear-gradient(45deg, var(--rainbow-colors));
+  --button-color: black;
+  accent-color: black;
+}
+
+a {
+  color: var(--link-color);
+}
+
+body {
+  font-family: var(--font-fallback);
+  background: var(--theme-bg);
+  font-size: 18px;
+  line-height: 1.625;
+}
+
+body,
+p,
+li {
+  color: var(--theme-text);
+}
+
+h1 {
+  font-size: calc(var(--f-h1-size) * 1px);
+  line-height: 1;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-size: calc(var(--f-h2-size) * 1px);
+  line-height: calc(var(--f-h2-lh) * 1px);
+}
+
+h3 {
+  font-size: calc(var(--f-h3-size) * 1px);
+  line-height: calc(var(--f-h3-lh) * 1px);
+}
+
+h4 {
+  font-size: calc(var(--f-h4-size) * 1px);
+  line-height: calc(var(--f-h4-lh) * 1px);
+}
+
+h5 {
+  font-size: calc(var(--f-h5-size) * 1px);
+  line-height: calc(var(--f-h5-lh) * 1px);
+}
+
+h6 {
+  font-size: calc(var(--f-h6-size) * 1px);
+  line-height: calc(var(--f-h6-lh) * 1px);
+}
+
+small,
+.text-small {
+  font-size: calc(var(--f-small-size) * 1px);
+  line-height: calc(var(--f-small-lh) * 1px);
+}
+
+:where(p, li) {
+  line-height: 24px;
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+  font-weight: var(--f-body-weight);
+  font-family: var(--font-family);
+  line-height: 1;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-family: Atkinson, Gill Sans, Gill Sans MT, Calibri, Trebuchet MS,
+    sans-serif;
+  line-height: 1.3;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  padding: 2rem;
+  display: flex;
+}
+
+main {
+  width: var(--content-max-width);
+  margin-inline: auto;
+  margin-block-start: 10vh;
+}
+
+footer {
+  align-self: flex-end;
+}
+
+/* .theme-selector-top {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+} */
